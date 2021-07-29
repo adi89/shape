@@ -102,7 +102,7 @@ module Shape
       #   @return [void]
       def delegate(*methods)
         options = methods.extract_options!
-        super *methods, options.reverse_merge(to: :_source)
+        super( *methods, **(options.reverse_merge(to: :_source)) )
       end
 
       def shape_collection(collection, sort_by: nil, **options)
