@@ -35,7 +35,7 @@ module Shape
       if block
         instance_eval(&block)
       else
-        from = options[:from] || name
+        from = options[:_from] || name
         define_accessor(name, from)
         delegate_property(from)
       end
@@ -72,7 +72,7 @@ module Shape
         include Shape
         instance_eval(&block)
       end
-      define_accessor(name, options[:from] || name)
+      define_accessor(name, options[:_from] || name)
     end
 
     def define_accessor(name, source_name)
